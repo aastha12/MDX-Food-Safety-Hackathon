@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+	div.scroll { 
+                margin:4px, 4px; 
+                padding:4px; 
+                width: 500px; 
+                height: 110px; 
+                overflow-x: hidden; 
+                overflow-y: auto; 
+                text-align:justify; 
+            }
+   </style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Alert Cases</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Value" placeholder="Value" required="required" />
+        <input type="text" name="DayOfMonth" placeholder="Day of the Month(1-31)" required="required" />
+	<input type="text" name="DayOfWeek" placeholder="Day of the Week(1-7)" required="required" />
+	<input type="text" name="WeekOfMonth" placeholder="Week of the Month(1-4)" required="required" />
+	<input type="text" name="Month" placeholder="Month (1-12)" required="required" />
+	<input type="text" name="Quarter" placeholder="Quarter (1-4)" required="required" />
+	<input type="text" name="Year" placeholder="Year" required="required" />
+	<input type="text" name="IsWeekday" placeholder="Is it a Weekday?(1/0)" required="required" />
+	<input type="text" name="HOUR" placeholder="What is the hour?(0-23)" required="required" />
+	<input type="text" name="IsNightTime" placeholder="Is it night time?(1/0)" required="required" />
+	<input type="text" name="Latitude" placeholder="Latitude" required="required" />
+	<input type="text" name="Longitude" placeholder="Longitude" required="required" />
+	<input type="text" name="Group_Name_FREEZER" placeholder="Is the Group Name a Freezer?(1/0)" required="required" />
+	<input type="text" name="Group_Name_FRUIT CHILLER" placeholder="Is the Group Name a Fruit Chiller?(1/0)" required="required" />
+	<input type="text" name="Group_Name_JUICE CHILLER" placeholder="Is the Group Name a Juice Chiller?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Corridor 1" placeholder="Is the Storage Name a Corridor 1?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Corridor 2" placeholder="Is the Storage Name a Corridor 2?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Factory Fridge" placeholder="Is the Storage Name a Factory Fridge?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Room 1" placeholder="Is the Storage Name a Room 1?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Room 2" placeholder="Is the Storage Name a Room 2?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Room 3" placeholder="Is the Storage Name a Room 3?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Room 4" placeholder="Is the Storage Name a Room 4?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Room 5" placeholder="Is the Storage Name a Room 5?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Small Fridge" placeholder="Is the Storage Name a Small Fridge?(1/0)" required="required" />
+	<input type="text" name="Storage_Name_Warehouse Fridge" placeholder="Is the Storage Name a Warehouse Fridge?(1/0)" required="required" />
+	<input type="text" name="Location_Name_Factory" placeholder="Is the Location Name a Factory?(1/0)" required="required" />
+	<input type="text" name="Location_Name_Jnah Warehouse" placeholder="Is the Location Name Jnah Warehouse?(1/0)" required="required" />
+	<input type="text" name="Location_Name_Storage Rooms" placeholder="Is the Location Name Storage Rooms?(1/0)" required="required" />
+	<input type="text" name="Service_Name_Temperature" placeholder="Is the Service Name Temperature?(1/0)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
