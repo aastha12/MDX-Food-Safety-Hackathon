@@ -3,7 +3,7 @@ This repository is a part of my submission for the Food Safety Hackathon organiz
 
 There are 4 parts to my submission:
 
-Part 1 :EDA
+Part 1: EDA
 
 Part 2: Logistic Regression model
 
