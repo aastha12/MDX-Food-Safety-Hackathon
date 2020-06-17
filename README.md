@@ -22,3 +22,9 @@ MDX Hackathon - Github.ipynb - This contains the Jupyter notebook for Explorator
 app.py - This contains Flask APIs that receives user input details through our website, computes the precited value based on our model and returns it.
 
 templates - This folder contains the HTML template to allow user to enter case details and display if the case is an alert case or not.
+
+Procfile - tells Heroku what kind of app you are running and how to serve it to users.
+
+requirements.txt - this tells Heroku which packages to install for your web app.
+
+MDX Hackathon.pkl - this contains our trained classifier model which we saved to disk using pickle. It can then be reloaded later on and used exactly as if we had trained it.
